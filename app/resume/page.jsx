@@ -1,63 +1,63 @@
 "use client";
 
-import{
+import {
     FaJava, 
     FaHtml5, 
     FaCss3, 
     FaJs,
     FaReact,
     FaAngular,
-    FaSpringBoot,
+    FaGit,
+    FaDocker,
 } from "react-icons/fa";
 
-import{
-   SiTailwindcss, SiNextdotjs} from "react-icons/si";
+import {
+   SiTailwindcss, 
+   SiNextdotjs
+} from "react-icons/si";
 
-//about data
-const about={
-    tittle: 'about me',
-    descpription:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates, quitbusdam, sunt explicabo inventore.",
+// About data
+const about = {
+    title: 'About Me', 
+    description: "I'm a full-stack developer who loves creating elegant and easy-to-use digital experiences. Skilled in Java, Spring Boot, Angular, and microservices, I focus on building scalable, efficient solutions while always learning and improving.",
     info: [
         {
-            filedName: "Name",
+            fieldName: "Name",
             fieldValue: "Gaddapu Jagan Kumar"
         },
         {
-            filedName: "Phone",
+            fieldName: "Phone",
             fieldValue: "(+91) 96 6855 9277"
         },
         {
-            filedName: "Experience",
+            fieldName: "Experience",
             fieldValue: "Fresher"
         },
         {
-            filedName: "Name",
-            fieldValue: "Gaddapu Jagan Kumar"
-        },
-        {
-            filedName: "Nationality",
+            fieldName: "Nationality",
             fieldValue: "Indian"
         },
         {
-            filedName: "Email",
-            fieldValue: "jagkmr14356@gamil.com"
+            fieldName: "Email",
+            fieldValue: "jagkmr14356@gmail.com" // Corrected email domain
         },
         {
-            filedName: "Languages",
+            fieldName: "Languages",
             fieldValue: "English, Hindi, Odia, Telugu"
         },
     ]
 };
-//Experience
+
+// Experience data
 const experience = {
     title: "Experience",
     description: "No professional experience yet."
 };
-//Education
+
+// Education data
 const education = {
-    icon: "",
-    title: "My education",
-    descpription:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates, quitbusdam, sunt explicabo inventore.",
+    title: "My Education", 
+    description: "I hold a Master’s degree in Computer Science and have completed a Full Stack Java Development course and a Crash Course on Python. My education has given me a strong foundation in software development and modern technologies.",
     items: [
         {
             institution: "Naresh IT",
@@ -76,84 +76,106 @@ const education = {
         },
         {
             institution: "Shri Krushna Chandra Gajapati Autonomous College",
-            degree: " Bachelor of Science in Computer Science", 
+            degree: "Bachelor of Science in Computer Science", 
             duration: "2016-2019",
         },
     ]
 };
 
-//siklls data
-const skills= {
-    title:"My skills",
-    descpription: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates, quitbusdam, sunt explicabo inventore.",
+// Skills data
+const skills = {
+    title: "My Skills",
+    description: "I specialize in full-stack development with skills in Java, Spring Boot, HTML, CSS, JavaScript, React, and Angular. I also work with databases like Oracle SQL and MySQL, and I’m familiar with tools like Docker, Postman, Git, and GitHub.",
     skillList: [
         {
             icon: <FaJava />,
-            name: "java",
+            name: "Java",
         },
         {
             icon: <FaHtml5 />,
-            name: "html 5",
+            name: "HTML 5",
         },
         {
             icon: <FaCss3 />,
-            name: "Css 3",
+            name: "CSS 3",
         },
         {
             icon: <FaJs />,
-            name: "javascript",
+            name: "JavaScript",
         },
         {
             icon: <FaReact />,
-            name: "react",
+            name: "React",
         },
         {
             icon: <FaAngular />,
-            name: "angular",
+            name: "Angular",
         },
         {
-            icon: <FaSpringBoot />,
-            name: "spring boot",
+            icon: <FaGit />,
+            name: "Git",
         },
+        {
+            icon: <FaDocker />,
+            name: "Docker",
+        }
+        
     ]
 };
 
-import {Tabs, TabsContent, TabsList, TabsTrigger} from "@/components/ui/tabs";
-
-import { Tooltip, 
-    TooltipContent,
-    TooltipProvider,
-    TooltipTrigger,
-} from "@/components/ui/tooltip";
-
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
 import { ScrollArea } from "@/components/ui/scroll-area";
-import {motion} from "framer-motion";
+import { motion } from "framer-motion";
 
+// SkillsList Component
+const SkillsList = ({ skillList }) => {
+    return (
+        <ul className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 xl:gap-[30px]">
+            {skillList.map((skill, index) => (
+                <li key={index} className="flex items-center gap-2">
+                    <TooltipProvider delayDuration={100}>
+                        <Tooltip>
+                            <TooltipTrigger className="w-full h-[150px] bg-[#232329] rounded-xl flex justify-center items-center group">
+                                <div className="text-6xl group-hover:text-accent transition-all duration-300">
+                                    {skill.icon}
+                                </div>
+                            </TooltipTrigger>
+                            <TooltipContent>
+                                <p className="capitalize">{skill.name}</p>
+                            </TooltipContent>
+                        </Tooltip>
+                    </TooltipProvider>
+                </li>
+            ))}
+        </ul>
+    );
+};
 
+// Resume Component
 const Resume = () => {
-    return <motion.div
-     initial={{opacity: 0}} 
-     animate={{
-        opacity:1, 
-        transition: {delay:2.4, duration:0.4, ease: "easeIn"}
-    }}
-    
-    clasName="min-h-[80vh] flex item=center justify-center py-12 xl:py-0"
-    >
-        <div className="container mx-auto">
-            <Tabs defaultValue="experience" 
-            clasName="flex flex-col xl:flex-row gap-[60px]">
-                <TabsList clasName="flex flex-col w-full max-w-[380px] mx-auto xl:mx-0 gap-6">
-                    <TabsTrigger value="experience">Experience</TabsTrigger>
-                    <TabsTrigger value="eduction">Education</TabsTrigger>
-                    <TabsTrigger value="skills">Skills</TabsTrigger>
-                    <TabsTrigger value="about">About me</TabsTrigger>
-                </TabsList>
+    return (
+        <motion.div
+            initial={{ opacity: 0 }} 
+            animate={{
+                opacity: 1, 
+                transition: { delay: 2.4, duration: 0.4, ease: "easeIn" }
+            }}
+            className="min-h-[80vh] flex items-center justify-center py-12 xl:py-0"
+        >
+            <div className="container mx-auto">
+                <Tabs defaultValue="experience" className="flex flex-col xl:flex-row gap-[60px]"> 
+                    <TabsList className="flex flex-col w-full max-w-[380px] mx-auto xl:mx-0 gap-6">
+                        <TabsTrigger value="experience">Experience</TabsTrigger>
+                        <TabsTrigger value="education">Education</TabsTrigger>
+                        <TabsTrigger value="skills">Skills</TabsTrigger>
+                        <TabsTrigger value="about">About Me</TabsTrigger>
+                    </TabsList>
 
-                {/* content */}
-                <div className="min-h-[70vh] w-full">
-                    {/* experience */}
-                    <TabsContent value="experience" className="w-full">
+                    {/* Content */}
+                    <div className="min-h-[70vh] w-full">
+                        {/* Experience */}
+                        <TabsContent value="experience" className="w-full">
                             <div className="flex flex-col gap-[30px] text-center xl:text-left">
                                 <h3 className="text-4xl font-bold">{experience.title}</h3>
                                 <p className="max-w-[600px] text-white/60 mx-auto xl:mx-0">
@@ -162,52 +184,61 @@ const Resume = () => {
                             </div>
                         </TabsContent>
 
-
-
-                        {/* education */}
-                    <TabsContent value="education" clasName="w-full">
-                    <div className="flex flex-col gap-[30px] text-center xl:text-left">
+                        {/* Education */}
+                        <TabsContent value="education" className="w-full">
+                            <div className="flex flex-col gap-[30px] text-center xl:text-left">
                                 <h3 className="text-4xl font-bold">{education.title}</h3>
                                 <p className="max-w-[600px] text-white/60 mx-auto xl:mx-0">
                                     {education.description}
                                 </p>
-                                <ScrollArea clasName="h-[400px]">
-                                    <ul clasName=" grid grid-cols-1 lg:grid-cols-2 gap[30px]">
-                                        {education.items.map((item, index)=>{
-                                            return <li key={index} clasName="bg-[#232329] h-[184px] py-6 px-10 rounded-xl flex-col justify-center items-center lg:items-start gap-1">
+                                <ScrollArea className="h-[400px]">
+                                    <ul className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                                        {education.items.map((item, index) => (
+                                            <li key={index} className="bg-[#232329] h-[184px] py-6 px-10 rounded-xl flex flex-col justify-center items-center lg:items-start gap-1">
                                                 <span className="text-accent">{item.duration}</span>
-                                                <h3 clasName="text-xl max-w-[260px] min-h-[60px]
-                                                text-center lag:text-left">{item.degree}</h3>
-                                                <div clasName="flex item-center gap-3">
-                                                    {/* dot */}
-                                                    <span clasName="w-[60px] h-[6px] rounded-full bg-accent"></span>
-                                                    <p clasName="text-white/60">{item.institution}</p>
+                                                <h3 className="text-xl max-w-[260px] min-h-[60px] text-center lg:text-left">{item.degree}</h3> 
+                                                <div className="flex items-center gap-3"> 
+                                                    <span className="w-[60px] h-[6px] rounded-full bg-accent"></span>
+                                                    <p className="text-white/60">{item.institution}</p>
                                                 </div>
                                             </li>
-                                        })}
+                                        ))}
                                     </ul>
                                 </ScrollArea>
                             </div>
                         </TabsContent>
-                        {/* skills */}
-                    <TabsContent value="skills" clasName="w-full h-full">
-                        <div className="flex flex-col gap-[30px]">
-                            <h3 clasName="text-4xl font-bold">{skills.title}</h3>
-                            <p clasName="max-w-[60px">{skills.description}</p>
-                            <ul>
-                                {skills.skillList.map((skill, index)=>{
-                                    return <li key={index}{skill.name}></li>;
-                                })}
-                            </ul>
-                        </div>
+
+                        {/* Skills */}
+                        <TabsContent value="skills" className="w-full h-full"> 
+                            <div className="flex flex-col gap-[30px]">
+                                <div className="flex flex-col gap-[30px] text-center xl:text-left">
+                                    <h3 className="text-4xl font-bold">{skills.title}</h3>
+                                    <p className="max-w-[600px] text-white/60 mx-auto xl:mx-0">{skills.description}</p> 
+                                </div>
+                                <SkillsList skillList={skills.skillList} />
+                            </div>
                         </TabsContent>
-                        {/* about */}
-                    <TabsContent value="about" clasName="w-full">
-                        about
+
+                        {/* About Me */}
+                        <TabsContent value="about" className="w-full text-center xl:text-left"> 
+                            <div className="flex flex-col gap-[30px]">
+                                <h3 className="text-4xl font-bold">{about.title}</h3>
+                                <p className="max-w-[600px] text-white/60 mx-auto xl:mx-0">{about.description}</p>
+                                <ul className="grid grid-cols-1 xl:grid-cols-2 gap-y-6 max-w-[620px] mx-auto xl:mx-0">
+                                    {about.info.map((item,index)=>(
+                                        <li key={index} className="flex items-center justify-center xl:justify-start gap-4">
+                                            <span className="text-white/60">{item.fieldName}</span>
+                                            <span>{item.fieldValue}</span>
+                                        </li>
+                                    ))}
+                                </ul>
+                            </div>
                         </TabsContent>
-                </div>
-            </Tabs>
-        </div>
-        </motion.div>;
+                    </div>
+                </Tabs>
+            </div>
+        </motion.div>
+    );
 };
- export default Resume;
+
+export default Resume;

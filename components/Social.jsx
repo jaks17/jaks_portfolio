@@ -5,8 +5,8 @@ import{FaGithub, FaLinkedinIn, FaInstagram, FaTwitter} from "react-icons/fa";
 const socials = [
     {icon: <FaGithub />, path: 'https://github.com/jaks17'},
     {icon: <FaLinkedinIn />, path: 'https://www.linkedin.com/in/g-jagankmr17/'},
-    {icon: <FaInstagram />, path: ''},
-    {icon: <FaTwitter />, path: ''},
+    {icon: <FaInstagram />, path: 'https://www.instagram.com/jagan_kumr17/'},
+    {icon: <FaTwitter />, path: 'https://x.com/GaddapuJagan'},
 ]
 
 const Social = ({containerStyles, iconStyles}) => {
