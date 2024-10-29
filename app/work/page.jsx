@@ -50,7 +50,7 @@ const projects = [
       { name: "Css3" },
       { name: "Javascript" },
     ],
-    image: "/assets/work/HL.png",
+    image: "/assets/work/HSP.png",
     live: "",
     github: "",
   },
@@ -67,7 +67,7 @@ const projects = [
       { name: "Css3" },
       { name: "Javascript" },
     ],
-    image: "/assets/work/HSP.png",
+    image: "/assets/work/HL.png",
     live: "",
     github: "",
   },
@@ -121,7 +121,7 @@ const Work = () => {
                 <Link href={project.live}>
                   <TooltipProvider delayDuration={100}>
                     <Tooltip>
-                      <TooltipTrigger className="w-[70px] h-[70px] rounded-full bg-white/5 justify-center item-center group">
+                      <TooltipTrigger className="w-[70px] h-[70px] rounded-full bg-white/5 flex items-center justify-center group">
                         <BsArrowUpRight className="text-white text-3xl group-hover:text-accent" />
                       </TooltipTrigger>
                       <TooltipContent>
@@ -131,10 +131,10 @@ const Work = () => {
                   </TooltipProvider>
                 </Link>
                 {/* github project button */}
-                <Link href={project.github}>
+                <Link href="https://github.com/jaks17" target="_blank" rel="noopener noreferrer">
                   <TooltipProvider delayDuration={100}>
                     <Tooltip>
-                      <TooltipTrigger className="w-[70px] h-[70px] rounded-full bg-white/5 justify-center item-center group">
+                      <TooltipTrigger className="w-[70px] h-[70px] rounded-full bg-white/5 flex items-center justify-center group">
                         <BsGithub className="text-white text-3xl group-hover:text-accent" />
                       </TooltipTrigger>
                       <TooltipContent>
@@ -173,7 +173,7 @@ const Work = () => {
               {/* slider buttons */}
               <WorkSliderBtns
                 containerStyles="flex gap-2 absolute right-0 bottom-[calc(50%_-_22px)] xl:bottom-0 z-20 w-full justify-between xl:w-max xl:justify-none"
-                btnStyles="bg-accent hover:bg-accent-hover text-primary text-[22px] w-[20px] h-[20px] flex justify-center transition-all"
+                btnStyles="bg-accent hover:bg-accent-hover text-primary text-[30px] w-[30px] h-[30px] flex justify-center transition-all"
               />
             </Swiper>
           </div>
